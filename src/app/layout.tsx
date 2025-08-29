@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
+import { Marcellus } from "next/font/google";
 import "./globals.css";
+import Header from "@/components/shared/Header";
+import Footer from "@/components/shared/Footer";
 
-const poppins = Poppins({
+const marcellus = Marcellus({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"], 
+  weight: "400",
   variable: "--font-poppins",
 });
 
@@ -20,8 +22,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${poppins.variable} antialiased overflow-x-hidden py-6 px-2  md:px-10` }>
+      <body
+        className={`${marcellus.className} antialiased overflow-x-hidden py-6 px-2  md:px-14`}
+      >
+        <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );

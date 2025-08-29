@@ -51,7 +51,7 @@ export default function Header() {
         </button>
       </div>
 
-     
+      {/* Modals */}
       <AnimatePresence>
         {menuOpen && (
           <MobileMenu
