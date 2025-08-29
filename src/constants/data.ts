@@ -14,19 +14,19 @@ export interface Data {
 export const menuData: Menu [] = [
     {
         title: "Women",
-        path: "/women"
+        path: "/category/women"
     },
     {
         title: "Men",
-        path: "/men"
+        path: "/category/men"
     },
     {
         title: "Bespoke",
-        path: "/bespoke"
+        path: "/category/bespoke"
     },
     {
         title: "Company",
-        path: "/company"
+        path: "/category/company"
     },
 ]
 
