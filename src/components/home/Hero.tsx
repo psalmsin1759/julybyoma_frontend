@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import Button from "@/components/ui/button";
 
 type HeroItem = {
   id: number;
@@ -88,7 +87,7 @@ export default function Hero() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          <Button>Order Now</Button>
+          <button className="bg-primary text-white px-4 py-2 rounded-3xl">Order Now</button>
         </motion.div>
 
         {/* Thumbnails */}
