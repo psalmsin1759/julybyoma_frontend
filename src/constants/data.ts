@@ -1,3 +1,4 @@
+
 export interface Menu {
     title: string;
     path: string;
@@ -201,3 +202,79 @@ export const homeCards = [
     mediaType: "image",
   },
 ];
+
+export interface FooterLink {
+  title: string;
+  path: string;
+}
+
+export const productFooterLinks : FooterLink[] = [
+  {
+    title: "Women",
+    path: "/women"
+  },
+  {
+    title: "Men",
+    path: "/men"
+  },
+  {
+    title: "Collections",
+    path: "/collections"
+  },
+  {
+    title: "Categories",
+    path: "/categories"
+  },
+]
+
+export const companyFooterLinks: FooterLink[]= [
+  {
+    title: "About Us",
+    path: "/about"
+  },
+  {
+    title: "FAQs",
+    path: "/faqs"
+  },
+  {
+    title: "Contact Us",
+    path: "/contact"
+  },
+ 
+]
+
+export const socialsFooterLinks : FooterLink[]= [
+  {
+    title: "Instagram",
+    path: "https://instagram.com"
+  },
+  {
+    title: "X",
+    path: "https://instagram.com"
+  },
+  {
+    title: "Tiktok",
+    path: "https://tiktok.com"
+  },
+  {
+    title: "Facebook",
+    path: "https://facebook.com"
+  },
+]
+
+
+export const legalFooterLinks: FooterLink[] = [
+  {
+    title: "Terms & Conditions",
+    path: "/terms"
+  },
+  {
+    title: "Shipping & Returns",
+    path: "/returns"
+  },
+  {
+    title: "Privacy Policy",
+    path: "/privacy"
+  },
+
+]

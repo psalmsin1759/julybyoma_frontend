@@ -23,7 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${marcellus.className} antialiased overflow-x-hidden py-6 px-2  md:px-14`}
+        className={`${marcellus.className} antialiased overflow-x-hidden py-6 px-4  md:px-14`}
       >
         <Header />
         {children}
