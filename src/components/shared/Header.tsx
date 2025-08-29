@@ -17,17 +17,6 @@ export default function Header() {
 
   return (
     <header className=" flex justify-between items-center relative">
-    
-      <nav className="hidden md:flex items-center">
-        <ul className="flex gap-6 text-md font-semibold">
-          {menuData.map((menu: Menu, index: number) => (
-            <li key={index} className="hover:underline">
-              <Link href={menu.path}>{menu.title}</Link>
-            </li>
-          ))}
-        </ul>
-      </nav>
-
       
       <div className="flex items-center gap-2">
         <button
@@ -38,6 +27,16 @@ export default function Header() {
         </button>
         <Logo type="light" />
       </div>
+
+       <nav className="hidden md:flex items-center">
+        <ul className="flex gap-6 text-md font-semibold">
+          {menuData.map((menu: Menu, index: number) => (
+            <li key={index} className="hover:underline">
+              <Link href={menu.path}>{menu.title}</Link>
+            </li>
+          ))}
+        </ul>
+      </nav>
 
      
       <div className="flex gap-2 md:gap-4 items-center text-md md:text-xl">
