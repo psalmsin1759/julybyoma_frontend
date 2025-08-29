@@ -6,6 +6,6 @@ interface Props{
 }
 export default function H1({input}: Props) {
   return (
-    <h1 className="text-lg md:text-2xl font-bold">{input}</h1>
+    <h1 className="text-lg md:text-3xl font-bold">{input}</h1>
   )
 }
