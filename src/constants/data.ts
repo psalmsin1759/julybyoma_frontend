@@ -84,6 +84,7 @@ export interface Product {
   name: string;
   category: string;
   price: number;
+  discountedPrice?: number;
   description: string;
   image: string;
   imageAlt?: string;
@@ -95,6 +96,7 @@ export const products : Product[] = [
     name: "Adire Maxi Dress",
     category: "Dresses",
     price: 18000,
+    discountedPrice: 15000,
     description: "Hand-dyed Adire maxi dress with modern flare, perfect for casual and semi-formal occasions.",
     image: "/images/products/product1.jpeg",
     imageAlt: "/images/products/product11.jpeg",
@@ -122,6 +124,7 @@ export const products : Product[] = [
     name: "Kaftan Gown",
     category: "Kaftans",
     price: 22000,
+    discountedPrice: 18000,
     description: "Flowy silk kaftan with embroidery around the neckline.",
     image: "/images/products/product1.jpeg",
     imageAlt: "/images/products/product11.jpeg",
@@ -158,6 +161,7 @@ export const products : Product[] = [
     name: "Chiffon Ankara Skirt",
     category: "Skirts",
     price: 15000,
+    discountedPrice: 10000,
     description: "Layered chiffon skirt with Ankara patterns for a chic modern look.",
     image: "/images/products/product1.jpeg",
     imageAlt: "/images/products/product11.jpeg",
