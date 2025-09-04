@@ -6,6 +6,9 @@ import Footer from "@/components/shared/Footer";
 import { ModalProvider } from "@/contexts/ModalContext";
 import GlobalModals from "@/components/GlobalModals";
 import { SizeProvider } from "@/contexts/SizeProvider";
+import { Provider } from "react-redux";
+import { store } from "@/redux/store";
+import ClientLayout from "./clientLayout";
 
 const marcellus = Marcellus({
   subsets: ["latin"],
@@ -28,14 +31,7 @@ export default function RootLayout({
       <body
         className={`${marcellus.className} antialiased overflow-x-hidden py-6 px-4  md:px-14`}
       >
-        <ModalProvider>
-          <SizeProvider>
-            <Header />
-            {children}
-            <GlobalModals />
-            <Footer />
-          </SizeProvider>
-        </ModalProvider>
+        <ClientLayout>{children}</ClientLayout>
       </body>
     </html>
   );

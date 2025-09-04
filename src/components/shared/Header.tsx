@@ -9,9 +9,11 @@ import { IoIosMenu, IoMdClose } from "react-icons/io";
 import MobileMenu from "./MobileMenu";
 import CartModal from "@/components/cart/CartModal";
 import { AnimatePresence } from "framer-motion";
+import { useSelector } from "react-redux";
+import { selectCartCount } from "@/redux/cart/cartSelectors";
 
 export default function Header() {
-  const [cartCount, setCartCount] = useState(0);
+   const cartCount = useSelector(selectCartCount);
   const [menuOpen, setMenuOpen] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
 
@@ -50,7 +52,7 @@ export default function Header() {
         </button>
       </div>
 
-      {/* Modals */}
+     
       <AnimatePresence>
         {menuOpen && (
           <MobileMenu

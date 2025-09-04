@@ -10,6 +10,9 @@ import { useSize } from "@/contexts/SizeProvider";
 import { FiHeart } from "react-icons/fi";
 import { AccordionItem } from "@/components/ui/AccordionItem";
 import RelatedProducts from "@/components/products/RelatedProducts";
+import { useDispatch } from "react-redux";
+import { addToCart } from "@/redux/cart/cartSlice";
+import { toast } from "sonner";
 
 interface Props {
   params: Promise<{ title: string }>;
@@ -19,7 +22,6 @@ const sizes: string[] = ["6", "8", "10", "12", "14", "16"];
 
 export default function ProductPage({ params }: Props) {
   const { title } = use(params);
-  console.log(title);
   const [product, setProduct] = useState<Product | null>(null);
   const { openModal } = useModal();
   const { selectedSize } = useSize();
@@ -41,6 +43,17 @@ export default function ProductPage({ params }: Props) {
   const decreaseQuantity = () => {
     if (quantity == 1) return;
     setQuantity((prev) => prev - 1);
+  };
+
+  const dispatch = useDispatch();
+
+  const addToBag = () => {
+    if (product != null && selectedSize != null) {
+      dispatch(addToCart({ product, quantity, variant: selectedSize! }));
+      toast("Item added to cart");
+    } else {
+      toast("Select a size");
+    }
   };
 
   if (!product) {
@@ -74,7 +87,6 @@ export default function ProductPage({ params }: Props) {
                 src={product.imageAlt!}
               />
             </div>
-            
           </div>
         </div>
         <div className="flex flex-col items-start gap-2 md:gap-3">
@@ -119,7 +131,10 @@ export default function ProductPage({ params }: Props) {
             </div>
           </div>
           <div className="w-full flex gap-4 h-14 mt-4 text-md md:text-lg">
-            <button className="w-full h-full rounded bg-black text-white">
+            <button
+              onClick={addToBag}
+              className="w-full h-full rounded bg-black text-white"
+            >
               Add to cart
             </button>
             <button className="h-full border border-black px-4 py-2 rounded">
