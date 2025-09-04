@@ -56,6 +56,10 @@ export default function ProductPage({ params }: Props) {
     }
   };
 
+  const addToWishlist = () => {
+    toast("Item added to wishlist");
+  }
+
   if (!product) {
     return (
       <div className="min-h-screen flex items-center justify-center">
@@ -137,7 +141,7 @@ export default function ProductPage({ params }: Props) {
             >
               Add to cart
             </button>
-            <button className="h-full border border-black px-4 py-2 rounded">
+            <button onClick={addToWishlist} className="h-full border border-black px-4 py-2 rounded">
               <FiHeart />
             </button>
           </div>

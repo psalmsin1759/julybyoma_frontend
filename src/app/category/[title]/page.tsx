@@ -43,14 +43,14 @@ export default function CategoryPage({ params }: Props) {
         </button>
       </div>
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mt-6 md:mt-10 gap-6 border-b border-gray-300 pb-4 md:pb-10">
-        {products.map((product: Product, index) => (
+        {products.map((product: Product) => (
           <motion.div
             key={product.id}
-            custom={index}
+           /*  custom={index}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
-            variants={cardVariants}
+            variants={cardVariants} */
           >
             <ProductCard product={product} />
           </motion.div>
