@@ -9,8 +9,14 @@ const GlobalModals = () => {
   if (!modal) return null;
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-black/60 z-50">
-      <div className="bg-white rounded-2xl shadow-lg p-6 relative">
+    <div
+      className="fixed inset-0 flex items-center justify-center bg-black/60 z-50"
+      onClick={closeModal} 
+    >
+      <div
+        className="bg-white/0 rounded-2xl shadow-lg p-6 relative"
+        onClick={(e) => e.stopPropagation()} 
+      >
         <button
           onClick={closeModal}
           className="absolute top-3 right-3 text-gray-600 hover:text-black"
@@ -18,7 +24,7 @@ const GlobalModals = () => {
           ✕
         </button>
 
-        {modal === "sizeChart" && <SizeChartModal/>}
+        {modal === "sizeChart" && <SizeChartModal />}
         {modal === "login" && <Login />}
         {modal === "register" && <p>📝 Register Modal</p>}
         {modal === "newsletter" && <p>📨 Newsletter Modal</p>}

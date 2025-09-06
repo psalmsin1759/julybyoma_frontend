@@ -8,6 +8,7 @@ import { useSelector } from "react-redux";
 import {
   selectCartCount,
   selectCartItems,
+  selectCartSubtotal,
   selectCartTotal,
 } from "@/redux/cart/cartSelectors";
 import { ScrollArea } from "../ui/scroll-area";
@@ -19,15 +20,16 @@ interface CartModalProps {
 
 export default function CartModal({ onClose }: CartModalProps) {
   const cartItems = useSelector(selectCartItems);
-  const cartTotal = useSelector(selectCartTotal);
+
   const cartCount = useSelector(selectCartCount);
+  const subtotal = useSelector(selectCartSubtotal);
 
   return (
     <div className="fixed inset-0 z-50 flex">
-     
+
       <div className="flex-1 bg-black/50" onClick={onClose} />
 
-     
+
       <motion.div
         initial={{ x: "100%" }}
         animate={{ x: 0 }}
@@ -35,7 +37,7 @@ export default function CartModal({ onClose }: CartModalProps) {
         transition={{ type: "tween", duration: 0.3 }}
         className="w-[80%] sm:w-96 bg-white rounded-2xl md:m-3 flex flex-col shadow-xl fixed right-0 top-0 h-full"
       >
-       
+
         <div className="border-b flex justify-between items-center gap-4 p-4">
           <div className="flex items-center gap-4">
             <h2 className="text-xl font-semibold">Your Cart</h2>
@@ -48,7 +50,7 @@ export default function CartModal({ onClose }: CartModalProps) {
           </button>
         </div>
 
-       
+
         <div className="flex-1 overflow-hidden">
           {cartItems.length > 0 ? (
             <ScrollArea className="h-full px-4">
@@ -78,14 +80,14 @@ export default function CartModal({ onClose }: CartModalProps) {
           <div className="w-full flex justify-between mb-3">
             <h3 className="text-xl md:text-2xl font-semibold">Subtotal</h3>
             <h3 className="text-lg md:text-xl font-semibold">
-              ₦{cartTotal.toLocaleString()}
+              ₦{subtotal.toLocaleString()}
             </h3>
           </div>
           <button
             className="w-full bg-primary text-white py-3 rounded-lg font-semibold mb-2"
             onClick={onClose}
           >
-            <Link href={"/checkout"}>Checkout</Link> 
+            <Link href={"/checkout"}>Checkout</Link>
           </button>
         </div>
       </motion.div>

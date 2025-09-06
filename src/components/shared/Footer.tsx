@@ -40,7 +40,7 @@ export const features: Feature[] = [
 
 export default function Footer() {
   return (
-    <section className="w-full flex flex-col gap-4  md:gap-8 section  items-center justify-center">
+    <section className="w-full flex flex-col gap-4  border-t md:gap-8 section  items-center justify-center">
       <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
         {features.map((feature: Feature, index) => (
           <div key={index} className="flex flex-col gap-3">
