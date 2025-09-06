@@ -282,3 +282,31 @@ export const legalFooterLinks: FooterLink[] = [
   },
 
 ]
+
+
+export const shippingMethod = [
+  {
+    name: "Lagos Island",
+    amount: 4000
+  },
+  {
+    name: "Lagos Mainland",
+    amount: 2000
+  },
+  {
+    name: "Outside Lagos",
+    amount: 5000
+  },
+  {
+    name: "Outside Nigeria (Africa)",
+    amount: 10000
+  },
+  {
+    name: "Outside Nigeria (Europe)",
+    amount: 20000
+  },
+  {
+    name: "Outside Nigeria (North America)",
+    amount: 25000
+  },
+]

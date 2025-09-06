@@ -9,10 +9,14 @@ export interface CartItem {
 
 interface CartState {
   items: CartItem[];
+  shippingMethod: string; 
+  discount: number;      
 }
 
 const initialState: CartState = {
   items: [],
+  shippingMethod: "Lagos Island", 
+  discount: 0,
 };
 
 export const cartSlice = createSlice({
@@ -37,7 +41,11 @@ export const cartSlice = createSlice({
     },
     removeFromCart: (state, action: PayloadAction<{ productId: string; variant: string }>) => {
       state.items = state.items.filter(
-        (item) => !(item.product.id.toString() === action.payload.productId && item.variant === action.payload.variant)
+        (item) =>
+          !(
+            item.product.id.toString() === action.payload.productId &&
+            item.variant === action.payload.variant
+          )
       );
     },
     updateQuantity: (
@@ -45,7 +53,9 @@ export const cartSlice = createSlice({
       action: PayloadAction<{ productId: string; variant: string; quantity: number }>
     ) => {
       const item = state.items.find(
-        (i) => i.product.id.toString() === action.payload.productId && i.variant === action.payload.variant
+        (i) =>
+          i.product.id.toString() === action.payload.productId &&
+          i.variant === action.payload.variant
       );
       if (item) {
         item.quantity = action.payload.quantity;
@@ -54,8 +64,21 @@ export const cartSlice = createSlice({
     clearCart: (state) => {
       state.items = [];
     },
+    setShippingMethod: (state, action: PayloadAction<string>) => {
+      state.shippingMethod = action.payload;
+    },
+    applyDiscount: (state, action: PayloadAction<number>) => {
+      state.discount = action.payload;
+    },
   },
 });
 
-export const { addToCart, removeFromCart, updateQuantity, clearCart } = cartSlice.actions;
+export const {
+  addToCart,
+  removeFromCart,
+  updateQuantity,
+  clearCart,
+  setShippingMethod,
+  applyDiscount,
+} = cartSlice.actions;
 export default cartSlice.reducer;

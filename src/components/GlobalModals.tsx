@@ -1,6 +1,7 @@
 "use client";
 import { useModal } from "@/contexts/ModalContext";
 import SizeChartModal from "./modals/SizeChart";
+import Login from "./auth/Login";
 
 const GlobalModals = () => {
   const { modal, closeModal } = useModal();
@@ -18,7 +19,7 @@ const GlobalModals = () => {
         </button>
 
         {modal === "sizeChart" && <SizeChartModal/>}
-        {modal === "login" && <p>🔑 Login Modal</p>}
+        {modal === "login" && <Login />}
         {modal === "register" && <p>📝 Register Modal</p>}
         {modal === "newsletter" && <p>📨 Newsletter Modal</p>}
       </div>

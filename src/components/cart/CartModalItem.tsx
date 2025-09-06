@@ -2,13 +2,14 @@ import { removeFromCart, updateQuantity, CartItem } from '@/redux/cart/cartSlice
 import React from 'react';
 import Image from 'next/image';
 import { useDispatch } from 'react-redux';
-import { FiTrash2 } from "react-icons/fi"; 
+import { FiTrash2 } from "react-icons/fi";
 
 interface CartItemProps {
   cartItem: CartItem;
+  view: string
 }
 
-export default function CartModalItem({ cartItem }: CartItemProps) {
+export default function CartModalItem({ cartItem, view }: CartItemProps) {
   const dispatch = useDispatch();
 
   const decreaseQuantity = () => {
@@ -43,7 +44,7 @@ export default function CartModalItem({ cartItem }: CartItemProps) {
 
   return (
     <div className="w-full p-4 flex gap-2 border-b border-gray-200">
-     
+
       <div className="relative w-[60px] md:w-[70px] h-[70px] md:h-[80px]">
         <Image
           src={cartItem.product.image}
@@ -53,7 +54,7 @@ export default function CartModalItem({ cartItem }: CartItemProps) {
         />
       </div>
 
-     
+
       <div className="w-full flex justify-between gap-2 md:gap-3">
         <div>
           <h4 className="text-sm md:text-md font-semibold">
@@ -65,26 +66,32 @@ export default function CartModalItem({ cartItem }: CartItemProps) {
             </span>
           </div>
 
-        
-          <div className="w-[100px] border border-gray-300 flex justify-between items-center rounded text-sm md:text-md px-2 py-1 mt-1">
-            <button onClick={decreaseQuantity} className="px-2">-</button>
-            <span>{cartItem.quantity}</span>
-            <button onClick={increaseQuantity} className="px-2">+</button>
-          </div>
+          {
+            view == "cart" ? <div className="w-[100px] border border-gray-300 flex justify-between items-center rounded text-sm md:text-md px-2 py-1 mt-1">
+              <button onClick={decreaseQuantity} className="px-2">-</button>
+              <span>{cartItem.quantity}</span>
+              <button onClick={increaseQuantity} className="px-2">+</button>
+            </div> : <><span className='text-sm'>Quantity:</span> <span>{cartItem.quantity}</span></>
+          }
+
+
         </div>
 
-       
+
         <div className="flex flex-col items-end justify-between">
           <h3 className="text-sm md:text-md font-semibold">
             ₦{(cartItem.product.price * cartItem.quantity).toLocaleString()}
           </h3>
-          <button
-            onClick={deleteItem}
-            className="text-red-500 hover:text-red-700 mt-2 flex items-center gap-1 text-xs md:text-sm"
-          >
-            <FiTrash2 className="w-4 h-4" />
-            Remove
-          </button>
+          {
+            view == "cart" && <button
+              onClick={deleteItem}
+              className="text-red-500 hover:text-red-700 mt-2 flex items-center gap-1 text-xs md:text-sm"
+            >
+              <FiTrash2 className="w-4 h-4" />
+              Remove
+            </button>
+          }
+
         </div>
       </div>
     </div>

@@ -53,7 +53,7 @@ export default function CartModal({ onClose }: CartModalProps) {
           {cartItems.length > 0 ? (
             <ScrollArea className="h-full px-4">
               {cartItems.map((cartItem, index) => (
-                <CartModalItem key={index} cartItem={cartItem} />
+                <CartModalItem key={index} cartItem={cartItem} view="cart" />
               ))}
             </ScrollArea>
           ) : (

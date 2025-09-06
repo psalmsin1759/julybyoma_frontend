@@ -50,9 +50,9 @@ export default function ProductPage({ params }: Props) {
   const addToBag = () => {
     if (product != null && selectedSize != null) {
       dispatch(addToCart({ product, quantity, variant: selectedSize! }));
-      toast("Item added to cart");
+      toast.success("Item added to cart");
     } else {
-      toast("Select a size");
+      toast.warning("Select a size");
     }
   };
 
