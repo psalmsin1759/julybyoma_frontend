@@ -122,7 +122,7 @@ export default function CheckoutPage() {
 
   const onSubmit = (data: FormValues) => {
     console.log("Form Submitted:", data);
-    toast.success("Order processed successfully!");
+    //toast.success("Order processed successfully!");
   };
 
   const router = useRouter()

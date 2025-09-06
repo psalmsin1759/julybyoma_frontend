@@ -10,7 +10,7 @@ const GlobalModals = () => {
 
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black/60 z-50">
-      <div className="bg-white rounded-2xl shadow-lg p-6 w-[400px] relative">
+      <div className="bg-white rounded-2xl shadow-lg p-6 relative">
         <button
           onClick={closeModal}
           className="absolute top-3 right-3 text-gray-600 hover:text-black"
