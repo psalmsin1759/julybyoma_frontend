@@ -215,19 +215,19 @@ export interface FooterLink {
 export const productFooterLinks : FooterLink[] = [
   {
     title: "Women",
-    path: "/women"
+    path: "/category/women"
   },
   {
     title: "Men",
-    path: "/men"
+    path: "/category/men"
   },
   {
     title: "Collections",
-    path: "/collections"
+    path: "/category/collections"
   },
   {
     title: "Categories",
-    path: "/categories"
+    path: "/category/categories"
   },
 ]
 

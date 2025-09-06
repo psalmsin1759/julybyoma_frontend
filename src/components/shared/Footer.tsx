@@ -1,9 +1,16 @@
+"use client";
 import Link from "next/link";
-import React from "react";
+import React, { ChangeEvent, useState } from "react";
 import { FaLock, FaUndo, FaGlobe, FaComments } from "react-icons/fa";
 import { IoMdArrowForward } from "react-icons/io";
 import FooterList from "./FooterList";
-import { productFooterLinks, legalFooterLinks, companyFooterLinks, socialsFooterLinks } from "@/constants/data";
+import {
+  productFooterLinks,
+  legalFooterLinks,
+  companyFooterLinks,
+  socialsFooterLinks,
+} from "@/constants/data";
+import { toast } from "sonner";
 export type Feature = {
   title: string;
   description: string;
@@ -39,6 +46,20 @@ export const features: Feature[] = [
 ];
 
 export default function Footer() {
+  const [email, setEmail] = useState("");
+
+  const onChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setEmail(e.target.value);
+  };
+
+  const handleSubscription = () => {
+    if (email != "") {
+      toast.success(`${email} has been subscribed`);
+    } else {
+      toast.warning("please enter email");
+    }
+  };
+
   return (
     <section className="w-full flex flex-col gap-4  border-t md:gap-8 section  items-center justify-center">
       <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
@@ -47,8 +68,12 @@ export default function Footer() {
             <div className="bg-primary-light rounded-full p-3  w-9 h-9 md:w-12 md:h-12 text-white flex items-center justify-center ">
               {feature.icon}
             </div>
-            <h1 className="text-md md:text-lg font-semibold">{feature.title}</h1>
-            <span className="text-gray-500 text-sm md:text-md">{feature.description}</span>
+            <h1 className="text-md md:text-lg font-semibold">
+              {feature.title}
+            </h1>
+            <span className="text-gray-500 text-sm md:text-md">
+              {feature.description}
+            </span>
           </div>
         ))}
       </div>
@@ -64,12 +89,17 @@ export default function Footer() {
                 <input
                   className="w-full h-full bg-white rounded-4xl px-4 py-2 shadow"
                   placeholder="Enter Your Email"
+                  name="email"
+                  onChange={onChange}
                 />
               </div>
 
-              <div className="absolute right-2 top-1 bg-black text-white rounded-full w-9 h-9 flex items-center justify-center">
+              <button
+                onClick={handleSubscription}
+                className="absolute right-2 top-1 bg-black text-white rounded-full w-9 h-9 flex items-center justify-center"
+              >
                 <IoMdArrowForward />
-              </div>
+              </button>
             </div>
             <span className="text-[12px] ">
               Join our mailing list to get style inspo, exclusive offers, and

@@ -11,11 +11,14 @@ import CartModal from "@/components/cart/CartModal";
 import { AnimatePresence } from "framer-motion";
 import { useSelector } from "react-redux";
 import { selectCartCount } from "@/redux/cart/cartSelectors";
+import { useModal } from "@/contexts/ModalContext";
 
 export default function Header() {
    const cartCount = useSelector(selectCartCount);
   const [menuOpen, setMenuOpen] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
+
+  const { openModal } = useModal();
 
   return (
     <header className=" flex justify-between items-center relative">
@@ -42,7 +45,7 @@ export default function Header() {
 
      
       <div className="flex gap-2 md:gap-4 items-center text-md md:text-xl">
-        <FiSearch className="cursor-pointer text-md md:text-2xl" />
+        <FiSearch onClick={() => openModal("search")} className="cursor-pointer text-md md:text-2xl" />
         <button
           onClick={() => setCartOpen(true)}
           className="flex items-center gap-1"

@@ -1,7 +1,7 @@
 "use client";
 import React, { createContext, useContext, useState, ReactNode } from "react";
 
-type ModalType = "sizeChart" | "login" | "register" | "newsletter" | null;
+type ModalType = "sizeChart" | "login" | "register" | "newsletter" | "search" | null;
 
 interface ModalContextProps {
   modal: ModalType;

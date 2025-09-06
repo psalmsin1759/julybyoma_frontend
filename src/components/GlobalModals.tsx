@@ -2,6 +2,7 @@
 import { useModal } from "@/contexts/ModalContext";
 import SizeChartModal from "./modals/SizeChart";
 import Login from "./auth/Login";
+import Search from "./modals/Search";
 
 const GlobalModals = () => {
   const { modal, closeModal } = useModal();
@@ -25,6 +26,7 @@ const GlobalModals = () => {
         </button>
 
         {modal === "sizeChart" && <SizeChartModal />}
+        {modal === "search" && <Search />}
         {modal === "login" && <Login />}
         {modal === "register" && <p>📝 Register Modal</p>}
         {modal === "newsletter" && <p>📨 Newsletter Modal</p>}

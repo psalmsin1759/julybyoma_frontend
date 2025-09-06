@@ -42,7 +42,7 @@ export default function CategoryPage({ params }: Props) {
           <MdSort /> Sort By
         </button>
       </div>
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mt-6 md:mt-10 gap-6 border-b border-gray-300 pb-4 md:pb-10">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mt-6 md:mt-10 gap-6  border-gray-300 pb-4 md:pb-10">
         {products.map((product: Product) => (
           <motion.div
             key={product.id}
